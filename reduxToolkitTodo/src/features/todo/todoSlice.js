@@ -1,8 +1,8 @@
 import { createSlice,nanoid } from "@reduxjs/toolkit";
 
-const initialState={
-    todos:[{id:1,text:"Heyy"}]
-}
+const initialState = {
+    todos: JSON.parse(localStorage.getItem('todos')) || [] // Load from localStorage, or use an empty array
+  };
 export const todoSlice=createSlice({
     name:'todo',
     initialState,
@@ -29,4 +29,4 @@ export const todoSlice=createSlice({
 })
 
 export const {addTodo,removeTodo,updateTodo}=todoSlice.actions
-export default todoSlice.reducer
+export default todoSlice.reducer;
